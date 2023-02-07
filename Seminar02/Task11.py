@@ -6,6 +6,9 @@
 # Input: 5
 # Output: 6
 
+import os
+os.system('cls')
+
 a = int(input('Введите число: '))
 
 fib1 = 0
