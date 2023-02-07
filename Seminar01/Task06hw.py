@@ -8,6 +8,9 @@
 # 385916 -> yes
 # 123456 -> no
 
+import os
+os.system('cls')
+
 
 n = input('Введите номер билета: ')
 
