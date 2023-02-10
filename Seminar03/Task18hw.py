@@ -13,8 +13,9 @@
 import os
 os.system('cls')
 
-x = 6
-my_list = [1, 2, 3, 4, 5]
+my_list = [int(input('Введите элемент: '))
+            for i in range(int(input('Введите количество элементов: ')))]
+x = int(input('Введите число: '))
 print(my_list)
 my_list.append(x)
 print(my_list)
