@@ -6,3 +6,6 @@
 # которое имеет 2 делителя: 1 и n(само число)
 # Input: 5
 # Output: yes
+
+import os
+os.system('cls')

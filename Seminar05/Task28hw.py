@@ -6,3 +6,6 @@
 # Пример:
 # 2 2
 # 4
+
+import os
+os.system('cls')
