@@ -9,3 +9,13 @@
 
 import os
 os.system('cls')
+
+def Sum_of_integers(a,b):
+    if b == 0:
+        return a
+    else:
+        return Sum_of_integers(a + 1, b - 1)
+
+a = int(input('Введите первое число: '))
+b = int(input('Введите второе число: '))
+print(f'Сумма чисел = {Sum_of_integers(a, b)}')
