@@ -6,3 +6,17 @@
 # Все числа списка находятся на разных строках.
 # Ввод:           Вывод:
 # 1 2 3 2 3       2
+
+import os
+os.system('cls')
+
+arr = list(int(input(f'Введите {i+1} число: ')) for i in range(int(input('Введите длину списка: '))))
+print(arr)
+arr.sort()
+print(arr)
+
+count = 0
+for i in range(1, len(arr)):
+    if arr[i] == arr[i-1]:
+        count +=1
+print(count)
