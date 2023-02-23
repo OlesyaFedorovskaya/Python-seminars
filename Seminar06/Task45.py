@@ -13,7 +13,8 @@
 # Ввод:       Вывод: 
 # 300         220 284
 
-
+import os
+os.system('cls')
 
 k = int(input('Введите число k: '))
 
