@@ -11,3 +11,28 @@
 # и “Пам парам”, если с ритмом все не в порядке
 # Ввод:         `                               Вывод:
 # пара-ра-рам рам-пам-папам па-ра-па-дам        Парам пам-пам
+
+import os
+os.system('cls')
+
+poem = input('Введите стихотворение: ')
+vowels = ['а','е','ё','и','о','у','ы','э','ю','я']
+parts_of_poem = poem.split()
+new_list = list()
+
+for word in parts_of_poem:
+    x = 0
+    for letter in word:
+        if letter in vowels:
+            x += 1
+    new_list.append(x)
+
+if len(set(new_list)) == 1:
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
+
+
+
+
+#res = list(filter(lambda letter: letter ))
