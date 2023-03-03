@@ -43,37 +43,66 @@ def input_contact():
     new_contact.append(input('Номер телефона: '))
     export_contacts(new_contact)
 
-def find_contact():
+def found_contact():
     s = import_contacts(input('Введите значение для поиска: '))
     print(*s)
 
+def change_contact():
+    with open(os.path.join(sys.path[0],'phonebook.txt'), 'r', encoding='utf-8') as data:
+        some_elem = input('Введите данные контакта: ')
+        lines = data.readlines()
+    with open(os.path.join(sys.path[0],'phonebook.tdxt'), 'w', encoding='utf-8') as data:
+        for line in lines:
+            if some_elem in line:
+                line = line.split()
+                for part in line:
+                    new_note = part.replace(part, input(f'Введите новую информацию {part} => '))
+                    data.writelines(new_note + ' ')
+                    print('Готово')
+            else:
+                data.write(str(line))
+        
+
+def delete_contact():
+    with open(os.path.join(sys.path[0],'phonebook.txt'), 'r', encoding='utf-8') as data:
+        some_elem = input('Введите данные контакта: ')
+        lines = data.readlines()
+    with open(os.path.join(sys.path[0],'phonebook.txt'), 'w', encoding='utf-8') as data:
+            for line in lines:
+                if some_elem in line:
+                    print('Удалено')  
+                else:
+                    print(line)
+                    data.write(line)
+        
+                
+
 def user_interface():
     main_import_contacts() # запускаем импорт всех контактов в словарь "телефонная книга"
-    print('Phonebook\nЧто вы хотите?\n1 - добавить контакт\n2 - найти контакт\n3 - print whole book\nany other input - конец программы')
+    print('Phonebook\nЧто вы хотите?\n'
+            '1 - добавить контакт\n'
+            '2 - найти контакт\n'
+            '3 - print whole book\n'
+            '4 - изменить данные контакта\n'
+            '5 - удалить контакт\n'
+            'any other input - конец программы')
     user_input = input('Ваш выбор: ')
-    while user_input in ('1','2','3'):
+    while user_input in ('1','2','3','4','5'):
         if user_input == '1':
             input_contact()
         elif user_input == '2':
-            find_contact()
+            found_contact()
         elif user_input == '3':
             print()
             for i in phonebook:
                 print(*phonebook[i])
+        elif user_input == '4':
+            change_contact()
+        elif user_input == '5':
+            delete_contact()
         user_input = input('\nВаш выбор: ')
 
     print('До свидания')
 
 phonebook = dict() # создаем словарь "телефонная книжка"
 user_interface() # запускаем функцию user_interface
-
-
-
-
-
-
-
-# print(phonebook)
-# input_contacts()
-# import_contacts()
-# import_contacts('иванов')
